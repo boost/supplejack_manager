@@ -13,7 +13,7 @@ development:
     default:
       # Defines the name of the default database that Mongoid can connect to.
       # (required).
-      database: harvester_development
+      database: ngataonga_manager_development
       # Provides the hosts the default session can connect to. Must be an array
       # of host:port pairs. (required)
       hosts:
@@ -37,7 +37,7 @@ development:
         # retry_interval: 1
     api:
       # database: dnz_api_development
-      database: supplejack_api_development
+      database: ngataonga_api_development
       hosts:
         <%= ENV['API_MONGOID_HOSTS'].gsub(/\s+/, "").split(',') %>
       options:
@@ -84,7 +84,7 @@ development:
 test:
   sessions:
     default:
-      database: harvester_test
+      database: ngataonga_manager_test
       hosts:
         <%= ENV['API_MONGOID_HOSTS'].gsub(/\s+/, "").split(',') %>
       options:
@@ -94,7 +94,7 @@ test:
         max_retries: 1
         retry_interval: 0
     api:
-      database: dnz_api_test
+      database: ngataonga_api_test
       hosts:
         <%= ENV['API_MONGOID_HOSTS'].gsub(/\s+/, "").split(',') %>
       options:
@@ -103,29 +103,14 @@ test:
 staging:
   sessions:
     default:
-      database: harvester_staging
+      database: ngataonga_manager_staging
       hosts:
-        - localhost:27017
+        - mongo.boost.co.nz:27017
       options:
         consistency: :strong
     api:
-      database: dnz_api_staging
+      database: ngataonga_api_staging
       hosts:
         <%= ENV['API_MONGOID_HOSTS'].gsub(/\s+/, "").split(',') %>
       options:
         consistency: :strong
-
-production:
-  sessions:
-    default:
-      database: harvester_production
-      hosts:
-        - localhost:27017
-      options:
-        consistency: :strong
-    api:
-      database: dnz_api_production
-      hosts:
-        <%= ENV['API_MONGOID_HOSTS'].gsub(/\s+/, "").split(',') %>
-      options:
-        consistency: :eventual
