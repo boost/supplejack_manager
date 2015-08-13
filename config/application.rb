@@ -18,9 +18,9 @@ require "sprockets/railtie"
 
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
-  Bundler.require(*Rails.groups(:assets => %w(development test)))
+  # Bundler.require(*Rails.groups(:assets => %w(development test)))
   # If you want your assets lazily compiled in production, use this line
-  # Bundler.require(:default, :assets, Rails.env)
+  Bundler.require(:default, :assets, Rails.env)
 end
 
 APPLICATION_ENVS = YAML.load_file('config/application.yml').keys.map { |key| key.to_sym } - [:development, :test] rescue []
@@ -90,5 +90,7 @@ module HarvesterManager
     config.assets.version = '1.0'
 
     config.i18n.enforce_available_locales = false
+
+    config.assets.paths << Rails.root.join('vendor', 'gems', 'neo-viz', 'app', 'assets', 'javascripts')
   end
 end
