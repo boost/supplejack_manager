@@ -82,6 +82,21 @@ GEM
       multi_json (~> 1.0)
     addressable (2.3.2)
     arel (3.0.2)
+    aws-eventstream (1.0.1)
+    aws-partitions (1.140.0)
+    aws-sdk-core (3.46.2)
+      aws-eventstream (~> 1.0)
+      aws-partitions (~> 1.0)
+      aws-sigv4 (~> 1.0)
+      jmespath (~> 1.0)
+    aws-sdk-kms (1.13.0)
+      aws-sdk-core (~> 3, >= 3.39.0)
+      aws-sigv4 (~> 1.0)
+    aws-sdk-s3 (1.30.1)
+      aws-sdk-core (~> 3, >= 3.39.0)
+      aws-sdk-kms (~> 1)
+      aws-sigv4 (~> 1.0)
+    aws-sigv4 (1.0.3)
     bcrypt-ruby (3.0.1)
     better_errors (1.1.0)
       coderay (>= 1.0.0)
@@ -167,6 +182,7 @@ GEM
       activesupport
       json
     i18n (0.6.11)
+    jmespath (1.4.0)
     journey (1.0.4)
     jquery-rails (2.1.4)
       railties (>= 3.0, < 5.0)
@@ -331,6 +347,7 @@ DEPENDENCIES
   active_model_serializers!
   activeresource
   activeresource-response
+  aws-sdk-s3 (~> 1)
   better_errors (>= 0.2.0)
   binding_of_caller (>= 0.6.8)
   cancancan
@@ -368,3 +385,6 @@ DEPENDENCIES
   vcr
   webmock
   zurb-foundation (= 3.2.5)
+
+BUNDLED WITH
+   1.16.2
